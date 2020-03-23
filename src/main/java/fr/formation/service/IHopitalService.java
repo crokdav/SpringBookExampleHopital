@@ -10,5 +10,5 @@ public List<Hopital> getAllHopital();
 public Hopital creatHopital (Hopital ho);
 public int deleteHopital (long id);
 public Hopital getHopital (long id); 
-
+public Hopital updateHopital (Hopital hopital);
 }

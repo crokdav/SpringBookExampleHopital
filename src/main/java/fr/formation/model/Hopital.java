@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 @Entity
 @Table(name="tb_hopital")
 //donner un nom personaliser à notre table SQL
@@ -19,7 +21,7 @@ private String ville;
 private String adresse;
 
 
-public Hopital( String nomHopital, String ville, String adresse) {
+public Hopital(String nomHopital, String ville, String adresse) {
 	super();
 	
 	this.nomHopital = nomHopital;

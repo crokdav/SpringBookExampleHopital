@@ -24,8 +24,9 @@ public class FirstSpringBootApplication implements CommandLineRunner {
 	IPatientService patientService;
 	public static void main(String[] args) {
 		SpringApplication.run(FirstSpringBootApplication.class, args);
-		
+		System.out.println("hi");
 	}
+	
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -51,15 +52,15 @@ public class FirstSpringBootApplication implements CommandLineRunner {
 //		medecinService.deleteMedecin(8);
 		
 	//Patient
-		Medecin me = new Medecin();
-		me.setIdMedecin(9);
-		patientService.createPatient(new Patient("Souffle au coeur", "David", me));
-		System.err.println(patientService.getAllPatient());
+//		Medecin me = new Medecin();
+//		me.setIdMedecin(9);
+//		patientService.createPatient(new Patient("Souffle au coeur", "David", me));
+//		System.err.println(patientService.getAllPatient());
 		//patientService.deletePatient(5);
 		
 		
 	}
 
-
+	}
 	
-}
+

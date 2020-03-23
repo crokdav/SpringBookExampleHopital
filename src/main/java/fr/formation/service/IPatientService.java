@@ -8,4 +8,6 @@ public interface IPatientService {
 	public Patient createPatient(Patient pa);
 	public int deletePatient (long id);
 	public Patient getPatient (long id);
+	public Patient updatePatient (Patient pa);
+	public Patient affectedpat (long idP, long idM);
 }

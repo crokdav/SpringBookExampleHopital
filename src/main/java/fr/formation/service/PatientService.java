@@ -6,7 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import fr.formation.model.Medecin;
 import fr.formation.model.Patient;
+import fr.formation.repository.IMedecinRepository;
 import fr.formation.repository.IpatientRepository;
 
 @Service
@@ -14,6 +17,9 @@ public class PatientService implements IPatientService {
 
 	@Autowired
 	IpatientRepository patientrepository;
+
+	@Autowired
+	IMedecinRepository medecinRepository;
 
 	@Override
 	public List<Patient> getAllPatient() {
@@ -59,4 +65,27 @@ public class PatientService implements IPatientService {
 		}
 	}
 
+	@Override
+	public Patient updatePatient(Patient pa) {
+		return patientrepository.save(pa);
+	}
+
+	@Override
+	public Patient affectedpat(long idP, long idM) {
+		try {
+			Optional<Patient> opa = patientrepository.findById(idP);
+			Patient patient =new Patient();
+			Optional<Medecin> opm = medecinRepository.findById(idM);
+			Medecin medecin = new Medecin();
+			if (opm.isPresent() && opa.isPresent()) {
+				patient = opa.get();
+				medecin= opm.get();
+				patient.setMedecin(medecin);
+				patientrepository.save(patient);
+			}
+			return patient;
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

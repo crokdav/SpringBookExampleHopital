@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.formation.model.Hopital;
 import fr.formation.repository.IHopitalRepository;
@@ -55,6 +56,12 @@ public class HopitalService implements IHopitalService {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	@Override
+	public Hopital updateHopital(Hopital hopital) {
+		// TODO Auto-generated method stub
+		return hopitalRepository.save(hopital);
 	}
 
 
